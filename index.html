@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tecnológico Superior de Chapala</title> 
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #4e0d7c; /* Color de fondo */
+            color: white; /* Color del texto */
+            text-align: center; /* Centrar el texto */
+        }
+        .header {
+            background-color: #5555c9; /* Color de fondo del encabezado */
+            color: white; /* Color del texto del encabezado */
+            padding: 15px 0; /* Espaciado interno */
+            text-align: center; /* Centrar el texto */
+            font-size: 24px; /* Tamaño de fuente */
+            font-weight: bold; /* Negrita */
+        }
+        .content {
+            padding: 20px; /* Espaciado interno */
+            display: flex; /* Usar flexbox para el contenido */
+            align-items: center; /* Alinear verticalmente */
+            justify-content: center; /* Centrar horizontalmente */
+            flex-direction: column; /* Colocar elementos en columna */
+        }
+        .logo {
+            width: 150px; /* Ancho de la imagen */
+            margin-bottom: 20px; /* Espacio debajo de la imagen */
+        }
+        .menu {
+            display: flex; /* Usar flexbox para el menú */
+            flex-wrap: wrap; /* Permitir que los botones se envuelvan */
+            justify-content: center; /* Centrar los botones */
+            padding: 10px; /* Espaciado interno */
+        }
+        .menu a {
+            display: inline-block; /* Mostrar como bloque en línea */
+            color: white; /* Color del texto */
+            text-decoration: none; /* Sin subrayado */
+            padding: 12px 25px; /* Espaciado interno */
+            margin: 10px; /* Margen entre botones */
+            font-weight: bold; /* Negrita */
+            border-radius: 8px; /* Bordes redondeados */
+            background-color: #6a5acd; /* Color de fondo del botón */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra del botón */
+            transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s; /* Transiciones suaves */
+        }
+        .menu a:hover {
+            background-color: #c52f2f; /* Color de fondo al pasar el mouse */
+            transform: translateY(-2px); /* Efecto de elevación al pasar el mouse */
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Sombra más intensa al pasar el mouse */
+        }
+        .footer {
+            background: #333; /* Color de fondo del pie de página */
+            color: white; /* Color del texto del pie de página */
+            text-align: center; /* Centrar el texto */
+            padding: 10px; /* Espaciado interno */
+            position: absolute; /* Posición absoluta */
+            width: 100%; /* Ancho completo */
+            bottom: 0; /* Posicionar en la parte inferior */
+        }
+        .footer-right {
+    position: absolute; /* Posición absoluta */
+    right: 10px; /* Alinear a la derecha */
+    bottom: 10px; /* Alinear al fondo */
+    display: flex; /* Usar flexbox para las imágenes */
+    flex-direction: row; /* Colocar imágenes en fila */
+    align-items: center; /* Centrar imágenes verticalmente */
+} 
+
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Tecnológico Superior de Chapala</h1> <!-- Título en lugar del logo -->
+    </div>
+    
+    <div class="content">
+        <img src="imagenes/portada.png" alt="Imagen 1" style="width: 550px;"> 
+
+        <nav class="menu">
+            <a href="Escolares.html" class="button">Escolares</a>
+            <a href="Direccion.html" class="button">Dirección</a>
+            <a href="Finanzas.html" class="button">Finanzas</a>
+            <a href="ServiciosGenerales.html" class="button">Servicios Generales</a>
+            <a href="Sistemas.html" class="button">Ingeniería Sistemas Computacionales</a>
+            <a href="Industrial.html" class="button">Ingeniería Industrial</a>
+            <a href="Mecatronica.html" class="button">Ingeniería Mecatrónica</a>
+            <a href="Animacion.html" class="button">Ingeniería en Animación Digital y Efectos Visuales</a>
+            <a href="Gestion.html" class="button">Ingeniería En Gestión Empresarial</a>
+            <a href="Gastronomia.html" class="button">Gastronomía</a>
+        </nav>
+    </div>
+    
+    <div class="footer">
+        <img src="imagenes/image.png" alt="Imagen 1" style="width: 160px;"> 
+        <img src="imagenes/image2.png" alt="Icono 2" style="width: 100px;"> 
+        <img src="imagenes/image3.png" alt="Icono 3" style="width: 160px;"> 
+        <img src="imagenes/image4.png" alt="Icono 4" style="width: 60px;"> 
+
+        <div class="footer-right">
+            <a href="https://www.facebook.com/TecSJ">
+                <img src="imagenes/Facebook.png" alt="Imagen 1" style="width: 60px;"> 
+            </a>
+            <a href="https://www.instagram.com/tec_chapala/">
+                <img src="imagenes/instagram.png" alt="Imagen 2" style="width: 40px;"> 
+            </a>
+            <a href="https://www.tiktok.com/@somosgamos">
+                <img src="imagenes/tiktok.png" alt="Imagen 1" style="width: 60px;"> 
+            </a>
+            <a href="https://x.com/campuschapala">
+                <img src="imagenes/x.png" alt="Imagen 1" style="width: 60px;"> 
+            </a>
+        </div>
+    </div>
+
+</body>
+</html>
