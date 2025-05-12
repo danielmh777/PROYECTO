@@ -25,17 +25,28 @@
             font-weight: bold; /* Negrita */
         }
         .docentes {
-    background-color: white; /* Color de fondo del cuadro */
-    color: black; /* Color del texto dentro del cuadro */
-    padding: 20px; /* Espaciado interno */
-    border-radius: 8px; /* Bordes redondeados */
-    width: 80%; /* Ancho del cuadro */
-    max-width: 280px; /* Ancho máximo del cuadro */
-    margin: 20px auto; /* Centrar el cuadro */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra del cuadro */
-    text-align: left; /* Alinear texto a la izquierda */
-    font-size: 20px; /* Tamaño del texto aumentado */
-}
+            background-color: white; /* Color de fondo del cuadro */
+            color: black; /* Color del texto dentro del cuadro */
+            padding: 20px; /* Espaciado interno */
+            border-radius: 8px; /* Bordes redondeados */
+            width: 80%; /* Ancho del cuadro */
+            max-width: 600px; /* Ancho máximo del cuadro */
+            margin: 20px auto; /* Centrar el cuadro */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra del cuadro */
+            text-align: left; /* Alinear texto a la izquierda */
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 10px;
+            border: 1px solid #ccc;
+        }
+        th {
+            background-color: #5757c0;
+            color: white;
+        }
         .footer {
             background: #333; /* Color de fondo del pie de página */
             color: white; /* Color del texto del pie de página */
@@ -60,15 +71,22 @@
 
     <div class="docentes">
         <h2>Lista de Docentes</h2>
-        <ul>
-            <li>Iguel Ángel Delgado</li>
-            <li>Alberto Chavoya</li>
-            <li>Francisco</li>
-            <li>Julio César Chávez</li>
-            <li>Francisco Javier</li>
-            <li>Edgar Martínez</li>
-            <li>José Jorge</li>
-        </ul>
+        <table id="docentesTable">
+            <thead>
+                <tr>
+                    <th>Nombre del Docente</th>
+                </tr>
+            </thead>
+            <tbody id="docentesList">
+                <tr><td contenteditable="true">Miguel Ángel Delgado</td></tr>
+                <tr><td contenteditable="true">Alberto Chavolla</td></tr>
+                <tr><td contenteditable="true">Francisco</td></tr>
+                <tr><td contenteditable="true">Julio César Chávez</td></tr>
+                <tr><td contenteditable="true">Francisco Javier</td></tr>
+                <tr><td contenteditable="true">Edgar Martínez</td></tr>
+                <tr><td contenteditable="true">José Jorge</td></tr>
+            </tbody>
+        </table>
     </div>
 
     <!-- Imagen en la esquina superior derecha como botón -->
@@ -82,6 +100,31 @@
         <img src="imagenes/image3.png" alt="Icono 3" style="width: 160px;"> 
         <img src="imagenes/image4.png" alt="Icono 4" style="width: 60px;"> 
     </div>
+
+    <script>
+        const docentesTable = document.getElementById("docentesTable");
+        const docentesList = document.getElementById("docentesList");
+
+        // Cargar docentes guardados desde localStorage
+        const docentesGuardados = JSON.parse(localStorage.getItem("docentes"));
+        if (docentesGuardados) {
+            docentesList.innerHTML = "";
+            docentesGuardados.forEach(docente => {
+                const tr = document.createElement("tr");
+                const td = document.createElement("td");
+                td.textContent = docente;
+                td.contentEditable = "true";
+                tr.appendChild(td);
+                docentesList.appendChild(tr);
+            });
+        }
+
+        // Guardar automáticamente al editar
+        docentesList.addEventListener("input", () => {
+            const datos = Array.from(docentesList.children).map(tr => tr.cells[0].textContent);
+            localStorage.setItem("docentes", JSON.stringify(datos));
+        });
+    </script>
 
 </body>
 </html>

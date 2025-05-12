@@ -18,24 +18,43 @@
             height: 100vh; /* Altura completa de la ventana */
             position: relative; /* Posición relativa para el posicionamiento de la imagen */
         }
+
         h1 {
             background-color: #5757c0; /* Color de fondo del encabezado */
             padding: 30px 0; /* Espaciado interno */
             font-size: 40px; /* Tamaño de fuente */
             font-weight: bold; /* Negrita */
+            margin: 0;
         }
+
         .docentes {
-    background-color: white; /* Color de fondo del cuadro */
-    color: black; /* Color del texto dentro del cuadro */
-    padding: 20px; /* Espaciado interno */
-    border-radius: 8px; /* Bordes redondeados */
-    width: 80%; /* Ancho del cuadro */
-    max-width: 280px; /* Ancho máximo del cuadro */
-    margin: 20px auto; /* Centrar el cuadro */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra del cuadro */
-    text-align: left; /* Alinear texto a la izquierda */
-    font-size: 20px; /* Tamaño del texto aumentado */
-}
+            background-color: white; /* Color de fondo del cuadro */
+            color: black; /* Color del texto dentro del cuadro */
+            padding: 20px; /* Espaciado interno */
+            border-radius: 8px; /* Bordes redondeados */
+            width: 80%; /* Ancho del cuadro */
+            max-width: 600px; /* Ancho máximo del cuadro */
+            margin: 20px auto; /* Centrar el cuadro */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra del cuadro */
+            text-align: left; /* Alinear texto a la izquierda */
+            font-size: 20px; /* Tamaño del texto aumentado */
+        }
+
+        ul {
+            list-style-type: none; /* Eliminar los puntos de la lista */
+            padding: 0;
+        }
+
+        li {
+            padding: 10px;
+            border-bottom: 1px solid #ddd; /* Línea separadora entre los docentes */
+            transition: background-color 0.3s ease; /* Transición suave */
+        }
+
+        li:hover {
+            background-color: #f2f2f2; /* Fondo al pasar el ratón */
+        }
+
         .footer {
             background: #333; /* Color de fondo del pie de página */
             color: white; /* Color del texto del pie de página */
@@ -44,9 +63,11 @@
             position: relative; /* Posición relativa */
             width: 100%; /* Ancho completo */
         }
+
         .footer img {
-            margin: 25px; /* Espacio entre imágenes */
+            margin: 15px; /* Espacio entre imágenes */
         }
+
         .top-right {
             position: absolute; /* Posición absoluta */
             top: 20px; /* Espacio desde la parte superior */
@@ -61,12 +82,12 @@
     <div class="docentes">
         <h2>Lista de Docentes</h2>
         <ul>
-            <li>Lina Corona</li>
-<li>Jessica Álvarez</li>
-<li>Jaime Sánchez</li>
-<li>Carlos Ramírez</li>
-<li>Yessica Regalado</li>
-<li>Mayra Hinojoza</li>
+            <li contenteditable="true">Lina Corona</li>
+            <li contenteditable="true">Jessica Álvarez</li>
+            <li contenteditable="true">Jaime Sánchez</li>
+            <li contenteditable="true">Carlos Ramírez</li>
+            <li contenteditable="true">Yessica Regalado</li>
+            <li contenteditable="true">Mayra Hinojoza</li>
         </ul>
     </div>
 

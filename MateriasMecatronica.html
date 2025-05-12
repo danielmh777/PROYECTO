@@ -1,83 +1,157 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MATERIAS</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #4B0082; /* Color de fondo */
-            color: white; /* Color del texto */
-            text-align: center; /* Centrar el texto */
-            display: flex; /* Usar flexbox */
-            flex-direction: column; /* Colocar elementos en columna */
-            justify-content: center; /* Centrar verticalmente */
-            height: 100vh; /* Altura completa de la ventana */
-            position: relative; /* Posición relativa para el posicionamiento de la imagen */
-        }
-        h1 {
-            background-color: #5757c0; /* Color de fondo del encabezado */
-            padding: 30px 0; /* Espaciado interno */
-            font-size: 30px; /* Tamaño de fuente */
-            font-weight: bold; /* Negrita */
-        }
-        .materias {
-            margin: 20px; /* Margen alrededor de la lista */
-            font-size: 23px; /* Tamaño de fuente de la lista */
-            text-align: center; /* Alinear texto al centro */
-        }
-        .footer {
-            background: #333; /* Color de fondo del pie de página */
-            color: white; /* Color del texto del pie de página */
-            text-align: center; /* Centrar el texto */
-            padding: 20px; /* Espaciado interno */
-            position: relative; /* Posición relativa */
-            width: 100%; /* Ancho completo */
-        }
-        .footer img {
-            margin: 25px; /* Espacio entre imágenes */
-        }
-        .top-right {
-            position: absolute; /* Posición absoluta */
-            top: 20px; /* Espacio desde la parte superior */
-            right: 20px; /* Espacio desde la derecha */
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Materias de Mecatrónica</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #2c3e50, #34495e);
+      color: white;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    h1 {
+      margin: 30px 0 10px;
+      font-size: 2.5em;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 800px;
+      background-color: rgba(255, 255, 255, 0.1);
+      padding: 20px;
+      border-radius: 15px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.3);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+
+    th, td {
+      padding: 10px;
+      text-align: left;
+      border: 1px solid #ddd;
+    }
+
+    th {
+      background-color: #e74c3c;
+      color: white;
+    }
+
+    td input {
+      width: 100%;
+      background: transparent;
+      color: white;
+      border: none;
+      font-size: 16px;
+      outline: none;
+      text-align: left;
+    }
+
+    td input:focus {
+      border: 1px solid #e74c3c;
+    }
+
+    .top-right {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+    }
+
+    .top-right img {
+      width: 60px;
+      height: auto;
+    }
+
+    .footer {
+      margin-top: auto;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .footer img {
+      width: 80px;
+      margin: 0 10px;
+    }
+  </style>
 </head>
 <body>
 
-    <h1>MATERIAS</h1>
+  <a href="index.html" class="top-right">
+    <img src="imagenes/casa.png" alt="Ir a inicio">
+  </a>
 
-    <div class="materias">
-        
-        <ul>
-            <li>Cálculo Diferencial</li>
-<li>Cálculo Integral</li>
-<li>Programación Básica</li>
-<li>Procesos de Fabricación</li>
-<li>Fundamentos de Termodinámica</li>
-<li>Máquinas Eléctricas</li>
-<li>Electrónica Analógica</li>
-<li>Diseño de Elementos Mecánicos</li>
-<li>Manufactura Avanzada</li>
-<li>Robótica</li>
-        </ul>
-    </div>
+  <h1>Materias de Mecatrónica</h1>
 
-    <!-- Imagen en la esquina superior derecha como botón -->
-    <a href="index.html" class="top-right">
-        <img src="imagenes/casa.png" alt="Ir a otra página" style="width: 80px; height: auto;"> <!-- Ajusta el tamaño según sea necesario -->
-    </a>
+  <div class="container">
+    <table id="materiaTable">
+      <thead>
+        <tr>
+          <th>Materia</th>
+        </tr>
+      </thead>
+      <tbody id="materiaList"></tbody>
+    </table>
+  </div>
 
-    <div class="footer">
-        <img src="imagenes/image.png" alt="Imagen 1" style="width: 160px;"> 
-        <img src="imagenes/image2.png" alt="Icono 2" style="width: 100px;"> 
-        <img src="imagenes/image3.png" alt="Icono 3" style="width: 160px;"> 
-        <img src="imagenes/image4.png" alt="Icono 4" style="width: 60px;"> 
-    </div>
+  <div class="footer">
+    <img src="imagenes/image.png" alt="Icono 1">
+    <img src="imagenes/image2.png" alt="Icono 2">
+    <img src="imagenes/image3.png" alt="Icono 3">
+    <img src="imagenes/image4.png" alt="Icono 4">
+  </div>
 
+  <script>
+    const tabla = document.getElementById("materiaList");
+
+    const materias = [
+      "Controladores Lógicos Programables",
+      "Electrónica Analógica",
+      "Diseño Mecánico",
+      "Sistemas Neumáticos e Hidráulicos",
+      "Programación de Microcontroladores",
+      "Robótica Industrial",
+      "Sensores y Actuadores",
+      "Mantenimiento Industrial",
+      "Automatización de Procesos",
+      "Diseño de Circuitos"
+    ];
+
+    function cargarMaterias() {
+      tabla.innerHTML = "";
+      materias.forEach((materia, index) => {
+        const tr = document.createElement("tr");
+
+        const td = document.createElement("td");
+        const input = document.createElement("input");
+        input.type = "text";
+        input.value = materia;
+        input.setAttribute("data-index", index);
+        input.className = "edit-input";
+        input.onchange = (e) => actualizarMateria(e.target);
+
+        td.appendChild(input);
+        tr.appendChild(td);
+        tabla.appendChild(tr);
+      });
+    }
+
+    function actualizarMateria(input) {
+      const index = input.getAttribute("data-index");
+      materias[index] = input.value.trim();
+    }
+
+    cargarMaterias();
+  </script>
 </body>
 </html>

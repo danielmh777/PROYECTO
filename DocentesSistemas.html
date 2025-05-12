@@ -9,48 +9,59 @@
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #4B0082; /* Color de fondo */
-            color: white; /* Color del texto */
-            text-align: center; /* Centrar el texto */
-            display: flex; /* Usar flexbox */
-            flex-direction: column; /* Colocar elementos en columna */
-            justify-content: center; /* Centrar verticalmente */
-            height: 100vh; /* Altura completa de la ventana */
-            position: relative; /* Posición relativa para el posicionamiento de la imagen */
+            background-color: #4B0082;
+            color: white;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            height: 100vh;
+            position: relative;
         }
         h1 {
-            background-color: #5757c0; /* Color de fondo del encabezado */
-            padding: 30px 0; /* Espaciado interno */
-            font-size: 40px; /* Tamaño de fuente */
-            font-weight: bold; /* Negrita */
+            background-color: #5757c0;
+            padding: 30px 0;
+            font-size: 40px;
+            font-weight: bold;
         }
         .docentes {
-    background-color: white; /* Color de fondo del cuadro */
-    color: black; /* Color del texto dentro del cuadro */
-    padding: 20px; /* Espaciado interno */
-    border-radius: 8px; /* Bordes redondeados */
-    width: 80%; /* Ancho del cuadro */
-    max-width: 280px; /* Ancho máximo del cuadro */
-    margin: 20px auto; /* Centrar el cuadro */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra del cuadro */
-    text-align: left; /* Alinear texto a la izquierda */
-    font-size: 20px; /* Tamaño del texto aumentado */
-}
+            background-color: white;
+            color: black;
+            padding: 20px;
+            border-radius: 8px;
+            width: 80%;
+            max-width: 600px;
+            margin: 20px auto;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            text-align: left;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 10px;
+            border: 1px solid #ccc;
+        }
+        th {
+            background-color: #5757c0;
+            color: white;
+        }
         .footer {
-            background: #333; /* Color de fondo del pie de página */
-            color: white; /* Color del texto del pie de página */
-            text-align: center; /* Centrar el texto */
-            padding: 20px; /* Espaciado interno */
-            position: relative; /* Posición relativa */
-            width: 100%; /* Ancho completo */
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            position: relative;
+            width: 100%;
         }
         .footer img {
-            margin: 25px; /* Espacio entre imágenes */
+            margin: 25px;
         }
         .top-right {
-            position: absolute; /* Posición absoluta */
-            top: 20px; /* Espacio desde la parte superior */
-            right: 20px; /* Espacio desde la derecha */
+            position: absolute;
+            top: 20px;
+            right: 20px;
         }
     </style>
 </head>
@@ -60,28 +71,59 @@
 
     <div class="docentes">
         <h2>Lista de Docentes</h2>
-        <ul>
-            <li>Miguel Ángel Delgado</li>
-            <li>Alberto Chavolla</li>
-            <li>Francisco</li>
-            <li>Julio César Chávez</li>
-            <li>Francisco Javier</li>
-            <li>Edgar Martínez</li>
-            <li>José Jorge</li>
-        </ul>
+        <table id="docentesTable">
+            <thead>
+                <tr>
+                    <th>Nombre del Docente</th>
+                </tr>
+            </thead>
+            <tbody id="docentesList">
+                <tr><td contenteditable="true">Miguel Ángel Delgado</td></tr>
+                <tr><td contenteditable="true">Alberto Chavolla</td></tr>
+                <tr><td contenteditable="true">Francisco</td></tr>
+                <tr><td contenteditable="true">Julio César Chávez</td></tr>
+                <tr><td contenteditable="true">Francisco Javier</td></tr>
+                <tr><td contenteditable="true">Edgar Martínez</td></tr>
+                <tr><td contenteditable="true">José Jorge</td></tr>
+            </tbody>
+        </table>
     </div>
 
-    <!-- Imagen en la esquina superior derecha como botón -->
     <a href="index.html" class="top-right">
-        <img src="imagenes/casa.png" alt="Ir a otra página" style="width: 80px; height: auto;"> <!-- Ajusta el tamaño según sea necesario -->
+        <img src="imagenes/casa.png" alt="Ir a otra página" style="width: 80px; height: auto;">
     </a>
 
     <div class="footer">
-        <img src="imagenes/image.png" alt="Imagen 1" style="width: 160px;"> 
-        <img src="imagenes/image2.png" alt="Icono 2" style="width: 100px;"> 
-        <img src="imagenes/image3.png" alt="Icono 3" style="width: 160px;"> 
-        <img src="imagenes/image4.png" alt="Icono 4" style="width: 60px;"> 
+        <img src="imagenes/image.png" alt="Imagen 1" style="width: 160px;">
+        <img src="imagenes/image2.png" alt="Icono 2" style="width: 100px;">
+        <img src="imagenes/image3.png" alt="Icono 3" style="width: 160px;">
+        <img src="imagenes/image4.png" alt="Icono 4" style="width: 60px;">
     </div>
+
+    <script>
+        const docentesTable = document.getElementById("docentesTable");
+        const docentesList = document.getElementById("docentesList");
+
+        // Cargar docentes guardados desde localStorage
+        const docentesGuardados = JSON.parse(localStorage.getItem("docentes"));
+        if (docentesGuardados) {
+            docentesList.innerHTML = "";
+            docentesGuardados.forEach(docente => {
+                const tr = document.createElement("tr");
+                const td = document.createElement("td");
+                td.textContent = docente;
+                td.contentEditable = "true";
+                tr.appendChild(td);
+                docentesList.appendChild(tr);
+            });
+        }
+
+        // Guardar automáticamente al editar
+        docentesList.addEventListener("input", () => {
+            const datos = Array.from(docentesList.children).map(tr => tr.cells[0].textContent);
+            localStorage.setItem("docentes", JSON.stringify(datos));
+        });
+    </script>
 
 </body>
 </html>

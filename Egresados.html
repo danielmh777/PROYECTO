@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Egresados - Servicios Escolares</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #4B0082;
+            color: white;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+        h1 {
+            background-color: #5757c0;
+            padding: 20px;
+            font-size: 30px;
+        }
+        .container {
+            margin: 30px;
+        }
+        .seccion {
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 30px;
+        }
+        .download-button {
+            background-color: #c72e2e;
+            color: white;
+            padding: 15px 25px;
+            text-decoration: none;
+            font-size: 18px;
+            border-radius: 8px;
+            display: inline-block;
+            margin-top: 20px;
+        }
+        .top-right {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+        }
+        .top-right img {
+            width: 60px;
+        }
+    </style>
+</head>
+<body>
+
+    <a href="index.html" class="top-right">
+        <img src="imagenes/casa.png" alt="Inicio">
+    </a>
+
+    <h1>Servicios para Egresados</h1>
+
+    <div class="container">
+
+        <div class="seccion">
+            <h2>Bienvenido, Egresado</h2>
+            <p>Nos complace que hayas culminado con éxito tu formación académica. Esta sección está diseñada para brindarte información clara sobre los servicios disponibles para ti como exalumno.</p>
+        </div>
+
+        <div class="seccion">
+            <h2>Servicios Disponibles</h2>
+            <ul style="text-align: left; max-width: 600px; margin: 0 auto;">
+                <li><b>📄 Constancias y Certificados:</b> Solicitud de constancias, certificados y documentos oficiales.</li>
+                <li><b>🧳 Bolsa de Trabajo:</b> Acceso a oportunidades laborales exclusivas.</li>
+                <li><b>🌎 Apostilla y Revalidación:</b> Asesoría en trámites internacionales.</li>
+                <li><b>🧾 Historial Académico:</b> Solicita tu historial actualizado.</li>
+                <li><b>🎓 Titulación y Posgrados:</b> Información sobre requisitos y orientación para estudios superiores.</li>
+            </ul>
+        </div>
+
+        <div class="seccion">
+            <h2>Requisitos Generales</h2>
+            <ul style="text-align: left; max-width: 600px; margin: 0 auto;">
+                <li>Identificación oficial vigente (INE o pasaporte).</li>
+                <li>Copia de tu CURP.</li>
+                <li>Comprobante de pago correspondiente.</li>
+                <li>Formato de solicitud lleno.</li>
+            </ul>
+        </div>
+
+        <div class="seccion">
+            <h2>Descarga la Guía del Egresado</h2>
+            <p>Puedes generar y descargar un comprobante personalizado en PDF con toda la información sobre los servicios para egresados.</p>
+            <button onclick="generarPDF()" class="download-button">
+                📄 Generar Guía del Egresado (PDF)
+            </button>
+        </div>
+
+    </div>
+
+    <!-- Cargar jsPDF -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script>
+        function generarPDF() {
+            const { jsPDF } = window.jspdf;
+            const doc = new jsPDF();
+
+            doc.setFontSize(18);
+            doc.text("Guía del Egresado - Servicios Escolares", 20, 20);
+
+            doc.setFontSize(12);
+            doc.text("Bienvenido, Egresado", 20, 35);
+            doc.text("Nos complace que hayas culminado con éxito tu formación académica.", 20, 42);
+            doc.text("Esta guía contiene información sobre servicios disponibles para ti como exalumno.", 20, 49);
+
+            doc.setFontSize(14);
+            doc.text("Servicios Disponibles", 20, 65);
+            doc.setFontSize(12);
+            const servicios = [
+                "Constancias y Certificados: Solicitud de documentos oficiales.",
+                "Bolsa de Trabajo: Acceso a oportunidades laborales.",
+                "Apostilla y Revalidación: Asesoría en trámites internacionales.",
+                "Historial Académico: Solicita tu historial actualizado.",
+                "Titulación y Posgrados: Información y orientación."
+            ];
+            let y = 73;
+            servicios.forEach(servicio => {
+                doc.text(`- ${servicio}`, 20, y);
+                y += 7;
+            });
+
+            doc.setFontSize(14);
+            doc.text("Requisitos Generales", 20, y + 10);
+            doc.setFontSize(12);
+            const requisitos = [
+                "Identificación oficial vigente (INE o pasaporte).",
+                "Copia de tu CURP.",
+                "Comprobante de pago correspondiente.",
+                "Formato de solicitud lleno."
+            ];
+            y += 18;
+            requisitos.forEach(req => {
+                doc.text(`- ${req}`, 20, y);
+                y += 7;
+            });
+
+            // Descargar el PDF
+            doc.save("Guia_Egresado.pdf");
+        }
+    </script>
+
+</body>
+</html>

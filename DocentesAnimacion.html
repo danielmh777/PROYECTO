@@ -25,17 +25,28 @@
             font-weight: bold; /* Negrita */
         }
         .docentes {
-    background-color: white; /* Color de fondo del cuadro */
-    color: black; /* Color del texto dentro del cuadro */
-    padding: 20px; /* Espaciado interno */
-    border-radius: 8px; /* Bordes redondeados */
-    width: 80%; /* Ancho del cuadro */
-    max-width: 280px; /* Ancho máximo del cuadro */
-    margin: 20px auto; /* Centrar el cuadro */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra del cuadro */
-    text-align: left; /* Alinear texto a la izquierda */
-    font-size: 20px; /* Tamaño del texto aumentado */
-}
+            background-color: white; /* Color de fondo del cuadro */
+            color: black; /* Color del texto dentro del cuadro */
+            padding: 20px; /* Espaciado interno */
+            border-radius: 8px; /* Bordes redondeados */
+            width: 80%; /* Ancho del cuadro */
+            max-width: 280px; /* Ancho máximo del cuadro */
+            margin: 20px auto; /* Centrar el cuadro */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra del cuadro */
+            text-align: left; /* Alinear texto a la izquierda */
+            font-size: 20px; /* Tamaño del texto aumentado */
+        }
+        .docentes ul {
+            list-style-type: none; /* Eliminar los puntos de la lista */
+            padding: 0;
+        }
+        .docentes li {
+            padding: 8px;
+            margin-bottom: 10px;
+            background-color: #f3f3f3; /* Color de fondo de cada item */
+            border-radius: 5px; /* Bordes redondeados para cada elemento de la lista */
+            font-size: 18px;
+        }
         .footer {
             background: #333; /* Color de fondo del pie de página */
             color: white; /* Color del texto del pie de página */
@@ -61,12 +72,12 @@
     <div class="docentes">
         <h2>Lista de Docentes</h2>
         <ul>
-            <li>Miguel Delgado</li>
-<li>María Gómez</li>
-<li>Rodolfo Rojas</li>
-<li>Francisco Luis Juan</li>
-<li>Julio Chávez</li>
-<li>José Gamas</li>
+            <li contenteditable="true">Miguel Delgado</li>
+            <li contenteditable="true">María Gómez</li>
+            <li contenteditable="true">Rodolfo Rojas</li>
+            <li contenteditable="true">Francisco Luis Juan</li>
+            <li contenteditable="true">Julio Chávez</li>
+            <li contenteditable="true">José Gamas</li>
         </ul>
     </div>
 

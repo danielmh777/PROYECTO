@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Direccion</title>
+    <title>Datos de Contacto</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -21,33 +21,22 @@
         h1 {
             background-color: #5757c0; /* Color de fondo del encabezado */
             padding: 30px 0; /* Espaciado interno */
-            font-size: 30px; /* Tamaño de fuente */
+            font-size: 50px; /* Tamaño de fuente */
             font-weight: bold; /* Negrita */
         }
-        .botones {
-            display: flex; /* Usar flexbox para los botones */
-            flex-direction: column; /* Colocar botones en columna */
-            align-items: center; /* Centrar los botones */
-            margin: 30px; /* Margen alrededor de los botones */
+        .descripcion {
+            margin: 20px; /* Margen alrededor de la descripción */
+            font-size: 18px; /* Tamaño de fuente de la descripción */
         }
-        .button {
-            margin: 30px 0; /* Aumentar el espacio entre botones */
-            padding: 15px 30px; /* Aumentar el espaciado interno */
-            font-size: 18px; /* Aumentar el tamaño de fuente */
-            background-color: #c72e2e; /* Color de fondo de los botones */
-            color: white; /* Color del texto de los botones */
-            border: none; /* Sin borde */
+        .cuadro {
+            background-color: white; /* Color de fondo del cuadro */
+            color: black; /* Color del texto dentro del cuadro */
+            padding: 20px; /* Espaciado interno */
             border-radius: 8px; /* Bordes redondeados */
-            cursor: pointer; /* Cambiar cursor al pasar el mouse */
-            transition: background-color 0.3s, transform 0.3s; /* Transiciones suaves */
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra del botón */
-        }
-        .button:hover {
-            background-color: #4B0082; /* Color al pasar el mouse */
-            transform: translateY(-2px); /* Efecto de elevación al pasar el mouse */
-        }
-        .button:active {
-            transform: translateY(0); /* Efecto de pulsación */
+            width: 80%; /* Ancho del cuadro */
+            max-width: 600px; /* Ancho máximo del cuadro */
+            margin: 20px auto; /* Centrar el cuadro */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra del cuadro */
         }
         .imagenes {
             display: flex; /* Usar flexbox para las imágenes */
@@ -76,16 +65,29 @@
             top: 20px; /* Espacio desde la parte superior */
             right: 20px; /* Espacio desde la derecha */
         }
+        input[type="text"], input[type="email"] {
+            width: 80%; /* Ancho del campo de texto */
+            padding: 8px; /* Espaciado interno */
+            margin: 10px 0; /* Espacio entre los campos */
+            font-size: 18px; /* Tamaño de fuente */
+            border: 1px solid #ccc; /* Borde gris claro */
+            border-radius: 5px; /* Bordes redondeados */
+        }
     </style>
 </head>
 <body>
 
-    <h1>Direccion</h1>
+    <h1>Datos de Contacto</h1>
 
-    <div class="botones">
-        <a href="DatosContacto.html" class="button">DATOS DE CONTACTO</a>
-        <a href="SolicitarCita.html" class="button">SOLICITAR CITA</a>
-        <a href="Ubicacion.html" class="button">UBICACION EN EL CAMPUS</a>
+    <div class="cuadro">
+        
+        <form>
+            <label for="nombre">Nombre:</label><br>
+            <input type="text" id="nombre" name="nombre" value="Iliana Janett Hernández Partida"><br>
+            
+            <label for="correo">Correo:</label><br>
+            <input type="email" id="correo" name="correo" value="IlianaJanettHernandezPartida@chapala.tecmm.edu.mx"><br>
+        </form>
     </div>
 
     <!-- Imagen en la esquina superior derecha como botón -->

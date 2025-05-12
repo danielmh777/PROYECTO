@@ -25,17 +25,17 @@
             font-weight: bold; /* Negrita */
         }
         .docentes {
-    background-color: white; /* Color de fondo del cuadro */
-    color: black; /* Color del texto dentro del cuadro */
-    padding: 20px; /* Espaciado interno */
-    border-radius: 8px; /* Bordes redondeados */
-    width: 80%; /* Ancho del cuadro */
-    max-width: 280px; /* Ancho máximo del cuadro */
-    margin: 20px auto; /* Centrar el cuadro */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra del cuadro */
-    text-align: left; /* Alinear texto a la izquierda */
-    font-size: 20px; /* Tamaño del texto aumentado */
-}
+            background-color: white; /* Color de fondo del cuadro */
+            color: black; /* Color del texto dentro del cuadro */
+            padding: 20px; /* Espaciado interno */
+            border-radius: 8px; /* Bordes redondeados */
+            width: 80%; /* Ancho del cuadro */
+            max-width: 280px; /* Ancho máximo del cuadro */
+            margin: 20px auto; /* Centrar el cuadro */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra del cuadro */
+            text-align: left; /* Alinear texto a la izquierda */
+            font-size: 20px; /* Tamaño del texto aumentado */
+        }
         .footer {
             background: #333; /* Color de fondo del pie de página */
             color: white; /* Color del texto del pie de página */
@@ -52,22 +52,54 @@
             top: 20px; /* Espacio desde la parte superior */
             right: 20px; /* Espacio desde la derecha */
         }
+        table {
+            width: 100%;
+            margin-top: 20px;
+            border-collapse: collapse;
+        }
+        table, th, td {
+            border: 1px solid black;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+            font-size: 18px;
+        }
     </style>
 </head>
-<body>
+<body contenteditable="true">
 
     <h1>DOCENTES</h1>
 
     <div class="docentes">
         <h2>Lista de Docentes</h2>
-        <ul>
-            <li>Miguel Delgado</li>
-<li>María Gómez</li>
-<li>Rodolfo Rojas</li>
-<li>José Hernández</li>
-<li>Juan Desales</li>
-<li>José Gamas</li>
-        </ul>
+        <table>
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td contenteditable="true">Miguel Delgado</td>
+                </tr>
+                <tr>
+                    <td contenteditable="true">María Gómez</td>
+                </tr>
+                <tr>
+                    <td contenteditable="true">Rodolfo Rojas</td>
+                </tr>
+                <tr>
+                    <td contenteditable="true">José Hernández</td>
+                </tr>
+                <tr>
+                    <td contenteditable="true">Juan Desales</td>
+                </tr>
+                <tr>
+                    <td contenteditable="true">José Gamas</td>
+                </tr>
+            </tbody>
+        </table>
     </div>
 
     <!-- Imagen en la esquina superior derecha como botón -->
