@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Egresados - Servicios Escolares</title>
+    <title>Comprobante de Reinscripción</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
         body {
@@ -27,6 +27,18 @@
             padding: 20px;
             margin-bottom: 30px;
         }
+        label, input, select {
+            display: block;
+            margin: 10px auto;
+            font-size: 16px;
+            width: 80%;
+            max-width: 400px;
+        }
+        input, select {
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+        }
         .download-button {
             background-color: #c72e2e;
             color: white;
@@ -34,115 +46,120 @@
             text-decoration: none;
             font-size: 18px;
             border-radius: 8px;
-            display: inline-block;
             margin-top: 20px;
-        }
-        .top-right {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-        }
-        .top-right img {
-            width: 60px;
+            cursor: pointer;
+            border: none;
         }
     </style>
 </head>
 <body>
 
-    <a href="index.html" class="top-right">
-        <img src="imagenes/casa.png" alt="Inicio">
-    </a>
+<h1>Comprobante de Reinscripción</h1>
 
-    <h1>Servicios para Egresados</h1>
+<div class="container">
 
-    <div class="container">
+    <div class="seccion">
+        <label for="nombre">Nombre completo:</label>
+        <input type="text" id="nombre" placeholder="Escribe tu nombre completo">
 
-        <div class="seccion">
-            <h2>Bienvenido, Egresado</h2>
-            <p>Nos complace que hayas culminado con éxito tu formación académica. Esta sección está diseñada para brindarte información clara sobre los servicios disponibles para ti como exalumno.</p>
-        </div>
+        <label for="control">Número de control:</label>
+        <input type="text" id="control" placeholder="Número de control">
 
-        <div class="seccion">
-            <h2>Servicios Disponibles</h2>
-            <ul style="text-align: left; max-width: 600px; margin: 0 auto;">
-                <li><b>📄 Constancias y Certificados:</b> Solicitud de constancias, certificados y documentos oficiales.</li>
-                <li><b>🧳 Bolsa de Trabajo:</b> Acceso a oportunidades laborales exclusivas.</li>
-                <li><b>🌎 Apostilla y Revalidación:</b> Asesoría en trámites internacionales.</li>
-                <li><b>🧾 Historial Académico:</b> Solicita tu historial actualizado.</li>
-                <li><b>🎓 Titulación y Posgrados:</b> Información sobre requisitos y orientación para estudios superiores.</li>
-            </ul>
-        </div>
+        <label for="carrera">Carrera:</label>
+        <select id="carrera">
+            <option value="">Selecciona tu carrera</option>
+            <option>Mecatrónica</option>
+            <option>Sistemas Computacionales</option>
+            <option>industrial</option>
+            <option>Animacion</option>
+            <option>Gastronomia</option>
+            <option>Gestion empresarial</option>
+        </select>
 
-        <div class="seccion">
-            <h2>Requisitos Generales</h2>
-            <ul style="text-align: left; max-width: 600px; margin: 0 auto;">
-                <li>Identificación oficial vigente (INE o pasaporte).</li>
-                <li>Copia de tu CURP.</li>
-                <li>Comprobante de pago correspondiente.</li>
-                <li>Formato de solicitud lleno.</li>
-            </ul>
-        </div>
-
-        <div class="seccion">
-            <h2>Descarga la Guía del Egresado</h2>
-            <p>Puedes generar y descargar un comprobante personalizado en PDF con toda la información sobre los servicios para egresados.</p>
-            <button onclick="generarPDF()" class="download-button">
-                📄 Generar Guía del Egresado (PDF)
-            </button>
-        </div>
-
+        <button onclick="generarComprobante()" class="download-button">
+            📄 Generar Comprobante PDF
+        </button>
     </div>
 
-    <!-- Cargar jsPDF -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-    <script>
-        function generarPDF() {
-            const { jsPDF } = window.jspdf;
-            const doc = new jsPDF();
+</div>
 
-            doc.setFontSize(18);
-            doc.text("Guía del Egresado - Servicios Escolares", 20, 20);
+<!-- jsPDF -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<!-- QR Code Generator -->
+<script src="https://cdn.jsdelivr.net/npm/qrcode/build/qrcode.min.js"></script>
 
-            doc.setFontSize(12);
-            doc.text("Bienvenido, Egresado", 20, 35);
-            doc.text("Nos complace que hayas culminado con éxito tu formación académica.", 20, 42);
-            doc.text("Esta guía contiene información sobre servicios disponibles para ti como exalumno.", 20, 49);
+<script>
+    async function generarComprobante() {
+        const nombre = document.getElementById("nombre").value.trim();
+        const control = document.getElementById("control").value.trim();
+        const carrera = document.getElementById("carrera").value;
 
-            doc.setFontSize(14);
-            doc.text("Servicios Disponibles", 20, 65);
-            doc.setFontSize(12);
-            const servicios = [
-                "Constancias y Certificados: Solicitud de documentos oficiales.",
-                "Bolsa de Trabajo: Acceso a oportunidades laborales.",
-                "Apostilla y Revalidación: Asesoría en trámites internacionales.",
-                "Historial Académico: Solicita tu historial actualizado.",
-                "Titulación y Posgrados: Información y orientación."
-            ];
-            let y = 73;
-            servicios.forEach(servicio => {
-                doc.text(`- ${servicio}`, 20, y);
-                y += 7;
-            });
-
-            doc.setFontSize(14);
-            doc.text("Requisitos Generales", 20, y + 10);
-            doc.setFontSize(12);
-            const requisitos = [
-                "Identificación oficial vigente (INE o pasaporte).",
-                "Copia de tu CURP.",
-                "Comprobante de pago correspondiente.",
-                "Formato de solicitud lleno."
-            ];
-            y += 18;
-            requisitos.forEach(req => {
-                doc.text(`- ${req}`, 20, y);
-                y += 7;
-            });
-
-            // Descargar el PDF
-            doc.save("Guia_Egresado.pdf");
+        if (!nombre || !control || !carrera) {
+            alert("Por favor llena todos los campos.");
+            return;
         }
-    </script>
+
+        const { jsPDF } = window.jspdf;
+        const doc = new jsPDF();
+        const fecha = new Date().toLocaleDateString();
+        const monto = "$1,500.00 MXN";
+        const concepto = "Reinscripción Ciclo Escolar Agosto-Diciembre 2025";
+        const folio = "RS-" + Math.floor(100000 + Math.random() * 900000);
+
+        const datosQR = `Folio: ${folio}\nNombre: ${nombre}\nControl: ${control}\nCarrera: ${carrera}\nFecha: ${fecha}`;
+
+        const qrDataURL = await QRCode.toDataURL(datosQR);
+
+        // Cabecera azul
+        doc.setFillColor(27, 63, 143);
+        doc.rect(0, 0, 210, 30, "F");
+        doc.setTextColor(255, 255, 255);
+        doc.setFontSize(16);
+        doc.text("Departamento de Servicios Escolares", 105, 18, { align: "center" });
+
+        // Título
+        doc.setTextColor(0, 0, 0);
+        doc.setFontSize(14);
+        doc.text("Comprobante Oficial de Pago por Reinscripción", 105, 40, { align: "center" });
+
+        // Fecha y folio
+        doc.setFontSize(12);
+        doc.text(`Fecha de emisión: ${fecha}`, 20, 50);
+        doc.text(`Folio: ${folio}`, 150, 50);
+
+        // Caja de información
+        doc.setFillColor(245, 245, 245);
+        doc.setDrawColor(200);
+        doc.rect(15, 60, 180, 60, "FD");
+
+        doc.setFontSize(12);
+        doc.setTextColor(0, 0, 0);
+        doc.text(`Nombre del Alumno: ${nombre}`, 20, 70);
+        doc.text(`Número de Control: ${control}`, 20, 80);
+        doc.text(`Carrera: ${carrera}`, 20, 90);
+        doc.text(`Concepto: ${concepto}`, 20, 100);
+
+        // Monto
+        doc.setFontSize(14);
+        doc.setTextColor(0, 102, 0);
+        doc.text(`Monto Pagado: ${monto}`, 20, 115);
+
+        // Código QR
+        doc.addImage(qrDataURL, "PNG", 145, 70, 40, 40);
+
+        // Estatus
+        doc.setFontSize(12);
+        doc.setTextColor(0, 153, 51);
+        doc.text("✔ Estatus: Pago Confirmado", 20, 135);
+
+        // Aviso
+        doc.setFontSize(10);
+        doc.setTextColor(100);
+        doc.text("Este documento es oficial y debe conservarse como comprobante del proceso de reinscripción.", 20, 145);
+
+        doc.save("Comprobante_Reinscripcion.pdf");
+    }
+</script>
 
 </body>
 </html>
