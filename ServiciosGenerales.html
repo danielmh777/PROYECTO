@@ -9,94 +9,104 @@
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #4B0082; /* Color de fondo */
-            color: white; /* Color del texto */
-            text-align: center; /* Centrar el texto */
-            display: flex; /* Usar flexbox */
-            flex-direction: column; /* Colocar elementos en columna */
-            justify-content: space-between; /* Espaciar elementos */
-            height: 100vh; /* Altura completa de la ventana */
-            position: relative; /* Posición relativa para el posicionamiento de la imagen */
+            background-color: #4B0082;
+            color: white;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 100vh;
+            position: relative; /* Necesario para posicionar la casita dentro */
         }
+
         h1 {
-            background-color: #5757c0; /* Color de fondo del encabezado */
-            padding: 30px 0; /* Espaciado interno */
-            font-size: 30px; /* Tamaño de fuente */
-            font-weight: bold; /* Negrita */
+            background-color: #5757c0;
+            padding: 30px 0;
+            font-size: 30px;
+            font-weight: bold;
         }
-        .botones {
-            display: flex; /* Usar flexbox para los botones */
-            flex-direction: column; /* Colocar botones en columna */
-            align-items: center; /* Centrar los botones */
-            margin: 30px; /* Margen alrededor de los botones */
+
+        .contenido {
+            padding: 20px;
         }
-        .button {
-            margin: 30px 0; /* Aumentar el espacio entre botones */
-            padding: 15px 30px; /* Aumentar el espaciado interno */
-            font-size: 18px; /* Aumentar el tamaño de fuente */
-            background-color: #c72e2e; /* Color de fondo de los botones */
-            color: white; /* Color del texto de los botones */
-            border: none; /* Sin borde */
-            border-radius: 8px; /* Bordes redondeados */
-            cursor: pointer; /* Cambiar cursor al pasar el mouse */
-            transition: background-color 0.3s, transform 0.3s; /* Transiciones suaves */
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra del botón */
+
+        .seccion {
+            margin-bottom: 25px;
         }
-        .button:hover {
-            background-color: #4B0082; /* Color al pasar el mouse */
-            transform: translateY(-2px); /* Efecto de elevación al pasar el mouse */
+
+        .seccion h2 {
+            font-size: 22px;
+            margin-bottom: 10px;
+            color: #ffd700;
         }
-        .button:active {
-            transform: translateY(0); /* Efecto de pulsación */
+
+        .seccion p, .seccion ul {
+            font-size: 18px;
+            margin: 0 auto;
+            max-width: 600px;
         }
-        .imagenes {
-            display: flex; /* Usar flexbox para las imágenes */
-            justify-content: center; /* Centrar las imágenes */
-            flex-wrap: wrap; /* Permitir que las imágenes se envuelvan */
-            margin-bottom: 20px; /* Margen inferior */
+
+        ul {
+            list-style-type: none;
+            padding: 0;
         }
-        .imagenes img {
-            margin: 10px; /* Espacio entre imágenes */
-            width: 200px; /* Ancho de las imágenes */
-            height: auto; /* Mantener la proporción de la imagen */
+
+        ul li::before {
+            content: "• ";
+            color: #ffd700;
         }
+
         .footer {
-            background: #333; /* Color de fondo del pie de página */
-            color: white; /* Color del texto del pie de página */
-            text-align: center; /* Centrar el texto */
-            padding: 10px; /* Espaciado interno */
-            position: relative; /* Posición relativa */
-            width: 100%; /* Ancho completo */
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 15px;
         }
-        .footer img {
-            margin: 25px; /* Espacio entre imágenes */
-        }
+
         .top-right {
-            position: absolute; /* Posición absoluta */
-            top: 20px; /* Espacio desde la parte superior */
-            right: 20px; /* Espacio desde la derecha */
+            position: absolute;
+            top: 20px;
+            right: 20px;
         }
     </style>
 </head>
 <body>
 
-    <h1>Servicios Generales</h1>
-
-    <div class="botones">
-        
-        <a href="Auditorio.html" class="button">AUDITORIO</a>
-    </div>
-
-    <!-- Imagen en la esquina superior derecha como botón -->
+    <!-- Botón de regreso en la esquina superior derecha -->
     <a href="index.html" class="top-right">
-        <img src="imagenes/casa.png" alt="Ir a otra página" style="width: 80px; height: auto;"> <!-- Ajusta el tamaño según sea necesario -->
+        <img src="imagenes/casa.png" alt="Ir al inicio" style="width: 50px; height: auto;">
     </a>
 
+    <h1>Servicios Generales</h1>
+
+    <div class="contenido">
+
+        <div class="seccion">
+            <h2>Contacto</h2>
+            <p>Correo electrónico: <strong>auditorio@chapala.tecmm.edu.mx</strong></p>
+        </div>
+
+        <div class="seccion">
+            <h2>Jefe de Servicios Generales</h2>
+            <p><strong>Nombre:</strong> Ing. Juan Pérez López</p>
+            <p><strong>Teléfono:</strong> (376) 765 1234 ext. 105</p>
+            <p><strong>Correo:</strong> juan.perez@chapala.tecmm.edu.mx</p>
+        </div>
+
+        <div class="seccion">
+            <h2>Servicios Ofrecidos a los Estudiantes</h2>
+            <ul>
+                <li>Renta del Auditorio para eventos escolares</li>
+                <li>Préstamo del Auditorio para actividades académicas</li>
+                <li>Atención y recuperación de objetos perdidos</li>
+                <li>Apoyo logístico para eventos institucionales</li>
+            </ul>
+        </div>
+
+    </div>
+
     <div class="footer">
-        <img src="imagenes/image.png" alt="Imagen 1" style="width: 160px;"> 
-        <img src="imagenes/image2.png" alt="Icono 2" style="width: 100px;"> 
-        <img src="imagenes/image3.png" alt="Icono 3" style="width: 160px;"> 
-        <img src="imagenes/image4.png" alt="Icono 4" style="width: 60px;"> 
+        TecMM Chapala - Departamento de Servicios Generales
     </div>
 
 </body>
